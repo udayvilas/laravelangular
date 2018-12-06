@@ -17,19 +17,28 @@
 </style>
 <h2>HTML Forms</h2>
 
-<a routerLink="home">Click here </a> To Go Home Page
+<a routerLink="/home">Click here </a> To Go Home Page
 
-<form >
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+<form #loginForm=ngForm (ngSubmit)="onSubmit()">
   First name:<br>
-  <input type="text" name="firstname" value="Mickey">
+  <input type="text" name="firstname" value="" [(ngModel)]="formobj.firstname">
   <br>
   Last name:<br>
-  <input type="text" name="lastname" value="Mouse">
+  <input type="text" name="lastname" value="" [(ngModel)]="formobj.lastname" >
+  <br>
+  Age :<br>
+  <input type="number" name="Age" value="" [(ngModel)]="formobj.age" >
+  <br>
+  Email:<br>
+  <input type="email" name="Email" value="" [(ngModel)]="formobj.email" >
+  <br>
+  Password:<br>
+  <input type="password" name="Password" [(ngModel)]="formobj.password" >
   <br><br>
   <input type="submit" value="Submit"  >
 </form>
-
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
 
 <h2>HTML Table</h2>
 

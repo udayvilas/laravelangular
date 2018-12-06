@@ -4,8 +4,9 @@ import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
-//import { AppRoutingModule } from './app-routing.module';
 import {RouterModule, Routes} from "@angular/router";
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginPageComponent },
@@ -25,8 +26,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
         appRoutes,
         { enableTracing: false } // <-- debugging purposes only
-    )
-
+    ),
+    FormsModule,
+    HttpClientModule
   ],
   schemas: [
   CUSTOM_ELEMENTS_SCHEMA
@@ -34,4 +36,4 @@ const appRoutes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
