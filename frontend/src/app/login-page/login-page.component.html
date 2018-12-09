@@ -22,20 +22,11 @@
 <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
 
 <form #loginForm=ngForm (ngSubmit)="onSubmit()">
-  First name:<br>
-  <input type="text" name="firstname" value="" [(ngModel)]="formobj.firstname">
+  USER_ID:<br>
+  <input type="text" name="USER_ID" value="" [(ngModel)]="formobj.USER_ID">
   <br>
-  Last name:<br>
-  <input type="text" name="lastname" value="" [(ngModel)]="formobj.lastname" >
-  <br>
-  Age :<br>
-  <input type="number" name="Age" value="" [(ngModel)]="formobj.age" >
-  <br>
-  Email:<br>
-  <input type="email" name="Email" value="" [(ngModel)]="formobj.email" >
-  <br>
-  Password:<br>
-  <input type="password" name="Password" [(ngModel)]="formobj.password" >
+  USER_NAME:<br>
+  <input type="text" name="USER_NAME" value="" [(ngModel)]="formobj.USER_NAME" >
   <br><br>
   <input type="submit" value="Submit"  >
 </form>

@@ -9,7 +9,7 @@ import {HttpClient} from "@angular/common/http";
 
 export class LoginPageComponent implements OnInit {
 
-  public formobj = {firstname:null,lastname:null,age:null,email:null,password:null};
+  public formobj = {USER_ID: null, USER_NAME:null};
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -17,11 +17,15 @@ export class LoginPageComponent implements OnInit {
 
   onSubmit(){
     console.log("Form Submitted");
-    //console.log(JSON.stringify(this.formobj));
+    console.log(JSON.stringify(this.formobj));
     return this.http.post("http://localhost:8000/api/login",this.formobj).subscribe(
      data => console.log(data),
      error => console.log(error)
     );
+  }
+
+  handle_error(error){
+    alert("Error :"+error.error.error)
   }
 
 }
