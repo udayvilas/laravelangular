@@ -18,10 +18,10 @@ export class LoginPageComponent implements OnInit {
   onSubmit(){
     console.log("Form Submitted");
     //console.log(JSON.stringify(this.formobj));
-    return this.http.post("http://localhost:8000/api/auth/login",this.formobj).subscribe(){
+    return this.http.post("http://localhost:8000/api/login",this.formobj).subscribe(
      data => console.log(data),
      error => console.log(error)
-    };
+    );
   }
 
 }
