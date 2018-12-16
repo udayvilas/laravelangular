@@ -7,11 +7,20 @@ import { HomePageComponent } from './home-page/home-page.component';
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppModelComponent } from './app-model/app-model.component';
+import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, MatToolbarModule, MatSidenavModule, MatListModule } from '@angular/material';
+import { LayoutModule } from '@angular/cdk/layout';
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginPageComponent },
-  { path: 'home', component: HomePageComponent },
-  { path: '**', component: LoginPageComponent }
+
+  { path: 'appmodel', component: AppModelComponent,
+    children:[
+      {path: 'homepanel', component: LoginPageComponent},
+      {path: '', component: HomePageComponent}
+    ]
+  },
+  { path: '**', redirectTo :'appmodel'}
 ]
 
 
@@ -19,16 +28,27 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LoginPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    AppModelComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(
         appRoutes,
-        { enableTracing: false } // <-- debugging purposes only
+        { enableTracing: true } // <-- debugging purposes only
     ),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   schemas: [
   CUSTOM_ELEMENTS_SCHEMA

@@ -20,11 +20,12 @@ export class LoginPageComponent implements OnInit {
     console.log(JSON.stringify(this.formobj));
     return this.http.post("http://localhost:8000/api/login",this.formobj).subscribe(
      data => console.log(data),
-     error => console.log(error)
+     error => this.handle_error(error)
     );
   }
 
   handle_error(error){
+    console.log(error)
     alert("Error :"+error.error.error)
   }
 

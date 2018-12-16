@@ -25,6 +25,7 @@ class AuthController extends Controller
     public function login()
     {
         $credentials = request(['USER_ID', 'USER_NAME']);
+        //return $credentials;
 
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'User Id Does not exists'], 401);
